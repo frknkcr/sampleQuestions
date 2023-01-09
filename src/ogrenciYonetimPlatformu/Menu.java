@@ -1,4 +1,4 @@
-package OgrenciYonetimPlatformu;
+package ogrenciYonetimPlatformu;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

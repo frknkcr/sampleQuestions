@@ -1,4 +1,4 @@
-package OgrenciYonetimPlatformu;
+package ogrenciYonetimPlatformu;
 
 public class Ogrenci {
     private String ad;
