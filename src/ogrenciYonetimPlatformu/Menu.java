@@ -23,7 +23,9 @@ public class Menu {
         try {
             int secim = scan.nextInt();
             switch (secim){
-                case 1 : {ekleme();}
+                case 1 : {
+                    ekleme();
+                }
                 case 2 : {
                     System.out.println("ARANACAK TC NO GİRİNİZ: ");
                     arama(scan.next());
