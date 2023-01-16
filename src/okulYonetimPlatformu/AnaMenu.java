@@ -27,7 +27,7 @@ public class AnaMenu {
                 }
 
             }
-        }catch (InputMismatchException e){
+        }catch (Exception e){
             String secim = scan.next();
             if (secim.equalsIgnoreCase("q")){
                 System.out.println("SİSTEMDEN ÇIKILIYOR");

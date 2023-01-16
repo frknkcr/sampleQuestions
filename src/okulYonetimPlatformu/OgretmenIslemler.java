@@ -35,7 +35,7 @@ public class OgretmenIslemler implements IIslemler{
                     System.out.println("HATALI SEÇİM!!!");
                     ogrtMenu();
             }
-        }catch (InputMismatchException e){
+        }catch (RuntimeException e){
             String secim = scan.next();
             if (secim.equalsIgnoreCase("q")){
                 AnaMenu anaMenu = new AnaMenu();
@@ -56,21 +56,22 @@ public class OgretmenIslemler implements IIslemler{
         System.out.println("ÖĞRETMENİN SOYADINI GİRİNİZ: ");
         String sAd = scan.nextLine();
         System.out.println("ÖĞRETMENİN TC NO SUNU GİRİNİZ: ");
-        String tcNo = tcNoKontrol(scan.next());
-        scan.nextLine();
+        String tcNo = tcNoKontrol(scan.nextLine());
         System.out.println("ÖĞRETMENİN YAŞINI GİRİNİZ: ");
         int yas = scan.nextInt();
         scan.nextLine();
         System.out.println("ÖĞRETMENİN BÖLÜMÜNÜ GİRİNİZ: ");
         String bolum = scan.nextLine();
-        Ogretmen ogretmen = new Ogretmen(ad,sAd,tcNo,yas,bolum,sicilNo++);
+        Ogretmen ogretmen = new Ogretmen(ad,sAd,tcNo,yas,bolum,++sicilNo);
         ogretmenList.add(ogretmen);
+        System.out.println(ogretmenList);
         ogrtMenu();
 
     }
 
     private String tcNoKontrol(String tcNo) {
-        String[] tcNoArr = tcNo.replace(" ","").split("");
+        tcNo = tcNo.replace(" ","");
+        String[] tcNoArr = tcNo.split("");
         boolean kontrol = true;
         for (String each: tcNoArr) {
             if (!Character.isDigit(each.charAt(0))){
@@ -86,32 +87,41 @@ public class OgretmenIslemler implements IIslemler{
 
     @Override
     public void arama() {
-        System.out.println("ARAMAK İSTEDİĞİNİZ ÖĞRETMEN TC'SİNİ GİRİNİZ: ");
-        String tc = scan.next();
+        System.out.println("ARAMAK İSTEDİĞİNİZ ÖĞRETMENİN TC VEYA SİCİL NO'SUNU GİRİNİZ: ");
+        String giris = scan.next();
         for (Ogretmen each:ogretmenList){
-            if (tc.equals(each.getTcNo())){
+            if (giris.equals(each.getTcNo()) || Integer.parseInt(giris) == each.getSicilNo()){
                 System.out.println(each);
-                ogrtMenu();
-            }else {
-                System.out.println("ÖĞRETMEN BULUNAMADI VE/VEYA GİRDİĞİNİZ TC HATALI!!");
                 ogrtMenu();
             }
         }
+        System.out.println("ÖĞRETMEN BULUNAMADI VE/VEYA GİRDİĞİNİZ TC VEYA SİCİL NO HATALI!!");
+        ogrtMenu();
     }
 
     @Override
     public void listeleme() {
 
         for (Ogretmen each: ogretmenList) {
-            System.out.println(each);
-            System.out.println();
-            ogrtMenu();
+            System.out.println(each+" ");
         }
+        System.out.println();
+        ogrtMenu();
     }
 
 
     @Override
     public void silme() {
-
+        System.out.println("SiSTEMDEN SİLMEK İSTEDİĞİNİZ ÖĞRETMENİN TC VEYA SİCİL NO'SUNU GİRİN: ");
+        String kontrol = scan.next();
+        for (Ogretmen each:ogretmenList) {
+            if (Integer.parseInt(kontrol) == each.getSicilNo() || each.getTcNo().equals(kontrol)) {
+                ogretmenList.remove(each);
+                System.out.println("SİLME İŞLEMİ BAŞARI İLE GERÇEKLEŞTİRİLDİ");
+                ogrtMenu();
+            }
+        }
+        System.out.println("GİRDİĞİNİZ TC VEYA SİCİL NO'YA UYAN BİR KAYIT BULUNAMADI!!");
+        ogrtMenu();
     }
 }
