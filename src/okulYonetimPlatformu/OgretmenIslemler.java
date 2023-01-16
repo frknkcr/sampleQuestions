@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class OgretmenIslemler implements IIslemler{
     static int sicilNo = 1000;
     Scanner scan = new Scanner(System.in);
-    ArrayList<Ogretmen> ogretmenList = new ArrayList<>();
+    static ArrayList<Ogretmen> ogretmenList = new ArrayList<>();
     void ogrtMenu(){
 
         System.out.println("============= İŞLEMLER =============\n" +
