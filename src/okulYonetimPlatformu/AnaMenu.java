@@ -1,9 +1,11 @@
 package okulYonetimPlatformu;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AnaMenu {
+
     Scanner scan = new Scanner(System.in);
     void menu(){
         System.out.println("   ====================================\n" +
@@ -19,21 +21,25 @@ public class AnaMenu {
             switch (secim){
                 case 1:{
                     OgrenciIslemler ogrenciMenu = new OgrenciIslemler();
+                    ogrenciMenu.ogrenciMenu();
+                    break;
                 }
                 case 2:{
                     OgretmenIslemler ogretmenMenu = new OgretmenIslemler();
                     ogretmenMenu.ogrtMenu();
                     break;
+                } default:{
+                    System.out.println("HATALI SEÇİM!!!");
+                    menu();
                 }
-
             }
-        }catch (InputMismatchException e){
+        }catch (RuntimeException e){
             String secim = scan.next();
             if (secim.equalsIgnoreCase("q")){
                 System.out.println("SİSTEMDEN ÇIKILIYOR");
                 System.exit(0);
             }else{
-                System.out.println("HATALI GİRİŞ YAPTINIZ");
+                System.out.println("HATALI GİRİŞ YAPTINIZ!!!");
                 menu();
             }
         }

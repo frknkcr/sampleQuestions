@@ -32,7 +32,8 @@ public class Ogrenci extends Kisi{
 
     @Override
     public String toString() {
-        return super.toString() +" "+ "numara=" + numara +
-                ", sinif='" + sinif;
+        return super.toString() +"\n"+
+                " SINIF= " + sinif+"\n"+
+                " NUMARA= " + numara;
     }
 }

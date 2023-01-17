@@ -32,7 +32,7 @@ public class OgretmenIslemler implements IIslemler{
                 case 4:{
                     silme();
                 } default:
-                    System.out.println("HATALI SEÇİM!!!");
+                    System.out.println("HATALI SEÇİM");
                     ogrtMenu();
             }
         }catch (InputMismatchException e){
@@ -46,7 +46,6 @@ public class OgretmenIslemler implements IIslemler{
             }
         }
     }
-
 
     @Override
     public void ekleme() {
@@ -64,7 +63,7 @@ public class OgretmenIslemler implements IIslemler{
         String bolum = scan.nextLine();
         Ogretmen ogretmen = new Ogretmen(ad,sAd,tcNo,yas,bolum,++sicilNo);
         ogretmenList.add(ogretmen);
-        System.out.println(ogretmenList);
+        System.out.println("EKLEME BAŞARILI");
         ogrtMenu();
 
     }
@@ -87,8 +86,9 @@ public class OgretmenIslemler implements IIslemler{
 
     @Override
     public void arama() {
+        scan.nextLine();
         System.out.println("ARAMAK İSTEDİĞİNİZ ÖĞRETMENİN TC VEYA SİCİL NO'SUNU GİRİNİZ: ");
-        String giris = scan.next();
+        String giris = scan.nextLine();
         for (Ogretmen each:ogretmenList){
             if (giris.equals(each.getTcNo()) || Integer.parseInt(giris) == each.getSicilNo()){
                 System.out.println(each);
@@ -101,7 +101,6 @@ public class OgretmenIslemler implements IIslemler{
 
     @Override
     public void listeleme() {
-
         for (Ogretmen each: ogretmenList) {
             System.out.println(each+" ");
         }
@@ -112,8 +111,9 @@ public class OgretmenIslemler implements IIslemler{
 
     @Override
     public void silme() {
+        scan.nextLine();
         System.out.println("SiSTEMDEN SİLMEK İSTEDİĞİNİZ ÖĞRETMENİN TC VEYA SİCİL NO'SUNU GİRİN: ");
-        String kontrol = scan.next();
+        String kontrol = scan.nextLine();
         for (Ogretmen each:ogretmenList) {
             if (Integer.parseInt(kontrol) == each.getSicilNo() || each.getTcNo().equals(kontrol)) {
                 ogretmenList.remove(each);

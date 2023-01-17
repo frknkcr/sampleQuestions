@@ -49,7 +49,7 @@ public class Kisi {
 
     @Override
     public String toString() {
-        return "Öğretmen Bilgileri" +"\n"+
+        return "===KİŞİ BİLGİLERİ===\n"+
                 " İSİM= " + ad + "\n" +
                 " SOY İSİM= " + sAd + "\n" +
                 " TC KİMLİK NO= " + tcNo + "\n" +
