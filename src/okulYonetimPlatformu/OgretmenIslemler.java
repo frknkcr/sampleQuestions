@@ -35,7 +35,7 @@ public class OgretmenIslemler implements IIslemler{
                     System.out.println("HATALI SEÇİM!!!");
                     ogrtMenu();
             }
-        }catch (RuntimeException e){
+        }catch (InputMismatchException e){
             String secim = scan.next();
             if (secim.equalsIgnoreCase("q")){
                 AnaMenu anaMenu = new AnaMenu();
@@ -95,7 +95,7 @@ public class OgretmenIslemler implements IIslemler{
                 ogrtMenu();
             }
         }
-        System.out.println("ÖĞRETMEN BULUNAMADI VE/VEYA GİRDİĞİNİZ TC VEYA SİCİL NO HATALI!!");
+        System.out.println("ÖĞRETMEN BULUNAMADI VE/VEYA GİRDİĞİNİZ TC HATALI!!");
         ogrtMenu();
     }
 
