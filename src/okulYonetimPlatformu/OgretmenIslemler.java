@@ -108,7 +108,6 @@ public class OgretmenIslemler implements IIslemler{
         ogrtMenu();
     }
 
-
     @Override
     public void silme() {
         scan.nextLine();

@@ -8,8 +8,8 @@ public class OgrenciIslemler implements IIslemler{
     static int numara = 1000;
     Scanner scan = new Scanner(System.in);
     static ArrayList<Ogrenci> ogrenciList = new ArrayList<>();
-    void ogrenciMenu(){
 
+    void ogrenciMenu(){
         System.out.println("============= İŞLEMLER =============\n" +
                 "       1-EKLEME\n" +
                 "       2-ARAMA\n" +
