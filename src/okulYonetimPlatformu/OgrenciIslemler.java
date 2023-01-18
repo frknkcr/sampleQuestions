@@ -15,7 +15,7 @@ public class OgrenciIslemler implements IIslemler{
                 "       2-ARAMA\n" +
                 "       3-LİSTELEME\n" +
                 "       4-SİLME\n" +
-                "       Q-ÇIKIŞ");
+                "       Q-ÜST MENÜ");
 
         try {
             int secim = scan.nextInt();
@@ -32,7 +32,7 @@ public class OgrenciIslemler implements IIslemler{
                 case 4:{
                     silme();
                 } default:{
-                    System.out.println("HATALI SEÇİM");
+                    System.out.println("HATALI SEÇİM!!!");
                     ogrenciMenu();
                 }
             }
@@ -94,7 +94,7 @@ public class OgrenciIslemler implements IIslemler{
     @Override
     public void silme() {
         scan.nextLine();
-        System.out.println("SiSTEMDEN SİLMEK İSTEDİĞİNİZ ÖĞRENCİNİN TC VEYA SİCİL NO'SUNU GİRİN: ");
+        System.out.println("SiSTEMDEN SİLMEK İSTEDİĞİNİZ ÖĞRENCİNİN TC VEYA ÖĞRENCİ NO'SUNU GİRİN: ");
         String kontrol = scan.nextLine();
         for (Ogrenci each:ogrenciList) {
             if (Integer.parseInt(kontrol) == each.getNumara() || each.getTcNo().equals(kontrol)) {
@@ -103,7 +103,7 @@ public class OgrenciIslemler implements IIslemler{
                 ogrenciMenu();
             }
         }
-        System.out.println("GİRDİĞİNİZ TC VEYA SİCİL NO'YA UYAN BİR KAYIT BULUNAMADI!!");
+        System.out.println("GİRDİĞİNİZ TC VEYA ÖĞRENCİ NO'YA UYAN BİR KAYIT BULUNAMADI!!");
         ogrenciMenu();
     }
 }

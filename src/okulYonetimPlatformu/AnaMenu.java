@@ -18,23 +18,22 @@ public class AnaMenu {
 
         try {
             int secim = scan.nextInt();
-            switch (secim){
-                case 1:{
+            switch (secim) {
+                case 1 -> {
                     OgrenciIslemler ogrenciMenu = new OgrenciIslemler();
                     ogrenciMenu.ogrenciMenu();
-                    break;
                 }
-                case 2:{
+                case 2 -> {
                     OgretmenIslemler ogretmenMenu = new OgretmenIslemler();
                     ogretmenMenu.ogrtMenu();
-                    break;
-                } default:{
+                }
+                default -> {
                     System.out.println("HATALI SEÇİM!!!");
                     menu();
                 }
             }
         }catch (RuntimeException e){
-            String secim = scan.next();
+            String secim = scan.nextLine();
             if (secim.equalsIgnoreCase("q")){
                 System.out.println("SİSTEMDEN ÇIKILIYOR");
                 System.exit(0);
