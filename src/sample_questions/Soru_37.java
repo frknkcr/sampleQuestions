@@ -1,6 +1,7 @@
 package sample_questions;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Soru_37 {
@@ -27,25 +28,22 @@ public class Soru_37 {
          */
 
         Scanner scan = new Scanner(System.in);
-        int i = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 1; i < 11; i++) {
+            System.out.println("Array'e eklemek icin "+ (i) +". sayiyi girin :");
+            list.add(scan.nextInt());
+        }
+        System.out.println("Olusturdugunuz list: "+list);
+        eliminateDuplicates(list);
+    }
 
-        int[] arr = new int[10];
-        for (int each: arr) {
-            System.out.println("10 tane sayigirin: ");
-            int input = scan.nextInt();
-            if (!(arr[i] == each)) {
-                arr[i] = input;
-                i++;
+    public static void eliminateDuplicates(List<Integer> list){
+        ArrayList<Integer> benzersizList = new ArrayList<>();
+        for (int each:list) {
+            if (!benzersizList.contains(each)){
+                benzersizList.add(each);
             }
         }
-
-        System.out.println(Arrays.toString(arr));
-
-    }
-    public static int[] eliminateDuplicates(int[] list){
-        int[] benzersizArr = new int[list.length];
-
-
-        return benzersizArr;
+        System.out.println("Benzersiz list: "+ benzersizList);
     }
 }

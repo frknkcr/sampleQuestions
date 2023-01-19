@@ -25,9 +25,9 @@ public class Soru_33 {
             x++;
         }
 
-        for (int i = 0; i < tersArr3.length; i++) {
+        for (String s : tersArr3) {
 
-            System.out.print(tersArr3[i]);
+            System.out.print(s);
 
         }
     }

@@ -34,6 +34,5 @@ public class Soru_31 {
         } else {
             System.out.println("gecersiz deger");
         }
-
     }
 }
