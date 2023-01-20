@@ -19,18 +19,24 @@ public class Soru_34 {
         String str4 = "ade1r4d3";
         stringArrayRakamToplami(str4);
 
+
     }
     public static void stringArrayRakamToplami(String str) {
 
         str = str.replaceAll("\\D", "");
-        int sayi = Integer.parseInt(str);
-        int toplam = 0;
+        // int sayi = Integer.parseInt(str);
+        int toplam =0;
 
+        for (int i = 0; i < str.length(); i++) {
+            toplam += Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+        /*
         while (sayi > 0) {
             toplam += sayi % 10;
             sayi /= 10;
-
         }
+        */
+
         System.out.println("String ifadedeki rakamlar toplami: "+toplam);
     }
 }
