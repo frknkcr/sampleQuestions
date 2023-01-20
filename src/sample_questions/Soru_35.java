@@ -15,9 +15,7 @@ public class Soru_35 {
         İpucu: Bir method içerisinde Array oluşturun ve aldıgınız ismi methoda gönderin. Bu ismi parçalayarak, her bir harfi, Arraye yerleştirin
          */
         String str5 = "Yakup";
-        char[] ch = new char[str5.length()];
-        ch = stringToCharMethod(str5);
-        System.out.println("String ifadenin char array hali: " + Arrays.toString(ch));
+        System.out.println("String ifadenin char array hali: " + Arrays.toString(stringToCharMethod(str5)));
 
     }
     public static char[] stringToCharMethod(String str) {
