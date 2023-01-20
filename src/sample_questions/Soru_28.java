@@ -15,15 +15,13 @@ public class Soru_28 {
 
         int sayi = 1238;
         String sayiStr = Integer.toString(sayi);
-        String tersSayiStr = "";
+        StringBuilder tersSayiStr = new StringBuilder();
 
         for (int i = sayiStr.length() - 1; i >= 0; i--) {
-
-            tersSayiStr += sayiStr.substring(i, i + 1);
-
+            tersSayiStr.append(sayiStr.charAt(i));
         }
 
-        int tersSayi = Integer.parseInt(tersSayiStr);
+        int tersSayi = Integer.parseInt(tersSayiStr.toString());
 
         System.out.println("Sayinin ters hali: " + tersSayi);
 

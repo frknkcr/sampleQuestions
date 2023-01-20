@@ -14,11 +14,10 @@ public class Soru_25 {
          */
 
         for (int i = 97; i <= 122; i++) {
-
-            int sayi = i;
-            char karakter = (char) sayi;
+            char karakter = (char) i;
             System.out.print(karakter+" ");
         }
+
         System.out.println();
 
         for (char harf = 'a'; harf <= 'z'; harf++) {

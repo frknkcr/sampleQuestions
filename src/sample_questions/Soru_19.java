@@ -134,7 +134,6 @@ public class Soru_19 {
             System.out.println(original);
             return original;
         }else{
-
             return original.substring(0, 1).toUpperCase() + original.substring(1);
         }
     }
