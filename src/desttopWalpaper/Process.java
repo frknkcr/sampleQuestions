@@ -4,7 +4,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
 
 
 public class Process {
@@ -24,7 +23,7 @@ public class Process {
 
     void apply(Image wallpaper) throws IOException {
 
-        File file = new File("C:\\Users\\frknk\\Downloads\\sherry-christian-8Myh76_3M2U-unsplash.jpg");
+        File file = new File("F:\\İndirilenler\\314764.png");
         String absolutePath = file.getAbsolutePath();
         Runtime.getRuntime().exec("reg add \"HKCU\\Control Panel\\Desktop\" /v Wallpaper /t REG_SZ /d \"" + absolutePath + "\" /f");
 
