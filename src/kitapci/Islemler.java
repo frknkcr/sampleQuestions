@@ -36,23 +36,18 @@ public class Islemler {
             switch (secim){
                 case 1:{
                     ekle();
-                    break;
                 }
                 case 2:{
                     noIleSorgula();
-                    break;
                 }
                 case 3:{
                     bigiIleKtiap();
-                    break;
                 }
                 case 4:{
                     kiatpSil();
-                    break;
                 }
                 case 5:{
                     kitaplistele();
-                    break;
                 }
                 default:{
                     System.out.println("hatali giris");
