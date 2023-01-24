@@ -7,10 +7,18 @@ public class Islemler {
         Scanner scan=new Scanner(System.in);
         static int kitapNo=1000;
         Map<Integer, Kitap> kitapMap = new HashMap<>();
+
         void islemler(){
             System.out.println("========HOSGELDİNİZ===========");
-            System.out.println("YAPMAK İSTEDGİNİZ İSLEMİ SECİNİZ \n1-Kitap Ekle\n2-No ile kitap goruntıle\n3-Bigi ile kitap goruntule" +
-                    "\n4-no ile kitap sil\n5-kitaplari listele\nQ-Cikis");
+            System.out.println("""
+                    YAPMAK İSTEDGİNİZ İSLEMİ SECİNİZ\s
+                    1-Kitap Ekle
+                    2-No ile kitap goruntıle
+                    3-Bigi ile kitap goruntule
+                    4-no ile kitap sil
+                    5-kitaplari listele
+                    Q-Cikis""");
+
             int secim=0;
             try {
                 secim=scan.nextInt();
@@ -59,8 +67,6 @@ public class Islemler {
                 System.out.println(kitapEntry.getValue());
             }
             islemler();
-
-
         }
 
         private void kiatpSil() {
@@ -88,17 +94,13 @@ public class Islemler {
             System.out.println("Kitabin adini veya yazarini giriniz");
             String isim=scan.nextLine();
             boolean kontrol=true;
-
             for (Map.Entry<Integer, Kitap> each:kitapMap.entrySet()) {
-
                     if (each.getValue().getKitapAdi().equalsIgnoreCase(isim)||each.getValue().getYazar().equalsIgnoreCase(isim)){
                         System.out.println("kitap bilgisi :"+each+" no :"+each.getKey());
                         kontrol=false;
                         islemler();
-
                     }
                 }
-
             if (kontrol){
                 System.out.println("bu isimde veya bu yazar adında bir kitap yok");
                 islemler();
@@ -116,7 +118,6 @@ public class Islemler {
             }
             System.out.println("böyle bir kitap bulunmamaktadir.");
             islemler();
-
         }
 
         private void ekle() {
