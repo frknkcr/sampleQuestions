@@ -10,15 +10,15 @@ import java.util.Scanner;
 
 public class Process {
     Scanner scan = new Scanner(System.in);
-   public void menu() {
-
+    static int sayac=0;
+    public void menu() {
 
        System.out.println("=======İŞLEMLER======\n" +
-               "1-Ekran görüntüsü al\n" +
-               "2-Duvar kağıdı değiştir\n"+
-               "3-Yeniden başlat\n"+
-               "  İşlem secin : ");
-
+               "  1-Ekran görüntüsü al\n" +
+               "  2-Duvar kağıdı değiştir\n"+
+               "  3-Yeniden başlat\n"+
+               "  0-Çıkış\n"+
+               "    İşlem secin : ");
 
        try {
            int secim = scan.nextInt();
@@ -29,11 +29,15 @@ public class Process {
                wallpaperChanger();
            } else if (secim == 3) {
                restart();
+           }else if (secim == 0){
+               System.out.println("Sistemden çıkılıyor");
+               System.exit(0);
            } else {
                System.out.println("Gecersiz secim");
                menu();
            }
        }catch (Exception e){
+           String secim = scan.nextLine();
            System.out.println("Sistem hatası");
            menu();
        }
@@ -42,7 +46,7 @@ public class Process {
     private void restart() {
 
         try {
-            Runtime.getRuntime().exec("shutdown /r");
+            Runtime.getRuntime().exec("shutdown -r -t 0");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,7 +57,10 @@ public class Process {
         Rectangle ekran = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(ekran);
-        ImageIO.write(image, "png", new File("C:\\Users\\Frknk\\Desktop\\screen.png"));
+
+        ImageIO.write(image, "png", new File("C:\\Users\\Frknk\\Desktop\\screen"+(++sayac)+".png"));
+        System.out.println("Ekran görüntüsü alindi");
+        menu();
     }
 
     void wallpaperChanger() throws IOException {
