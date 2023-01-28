@@ -1,7 +1,9 @@
 package desttopWalpaper;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -63,15 +65,25 @@ public class Process {
         menu();
     }
 
-    void wallpaperChanger() throws IOException {
+    void wallpaperChanger() throws IOException, AWTException {
 
         System.out.println("Dosya yolunu girin");
-        String dosyaYolu = scan.next();
-        File file = new File("F:\\İndirilenler\\314764.png");
-        String absolutePath = file.getAbsolutePath();
-        Runtime.getRuntime().exec("reg add \"HKCU\\Control Panel\\Desktop\" /v Wallpaper /t REG_SZ /d \"" + absolutePath + "\" /f");
-        System.out.println("Geçerli değişikliklerin uygulanabilmesi için yeniden başlatmanı gerekiyor E/H");
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Dosya Seçin");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String absolutePath = selectedFile.getAbsolutePath();
+            Runtime.getRuntime().exec("reg add \"HKCU\\Control Panel\\Desktop\" /v Wallpaper /t REG_SZ /d \"" + absolutePath + "\" /f");
 
+            JDesktopPane desktop = new JDesktopPane();
+            JInternalFrame frame = new JInternalFrame();
+            desktop.add(frame);
+            frame.setVisible(true);
+
+        }
+        System.out.println("Geçerli değişikliklerin uygulanabilmesi için yeniden başlatmanı gerekiyor E/H");
         if (scan.next().equalsIgnoreCase("e")){
             restart();
         }else {
