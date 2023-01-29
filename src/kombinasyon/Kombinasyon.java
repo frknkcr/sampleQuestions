@@ -12,21 +12,5 @@ public class Kombinasyon {
                 System.out.print(arrList.get(i) + " " + arrList.get(j)+", ");
             }
         }
-
-    }
-    void printCombinations(String[] arr, int index, int num, String data[], int i)
-    {
-        if (index == num)
-        {
-            for (int j=0; j<num; j++)
-                System.out.print(data[j]+" ");
-            System.out.println();
-            return;
-        }
-        if (i >= arr.length)
-            return;
-        data[index] = arr[i];
-        printCombinations(arr, index+1, num, data, i+1);
-        printCombinations(arr, index, num, data, i+1);
     }
 }
