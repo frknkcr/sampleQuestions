@@ -1,5 +1,8 @@
 package okulYonetimPlatformu;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -50,6 +53,7 @@ public class OgrenciIslemler implements IIslemler{
 
     @Override
     public void ekleme() {
+
         scan.nextLine();
         System.out.println("ÖĞRENCİNİN ADINI GİRİNİZ: ");
         String ad = scan.nextLine();
